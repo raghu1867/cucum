@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WebTables {
+	public WebDriver driver;
 
 	public static void main(String[] args) {
 
@@ -31,11 +32,12 @@ public class WebTables {
 				"//*[contains(@class,'oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space')]"))
 				.click();
 
-		
-		
-		
+		// WebElement wb =
+		// driver.findElement(By.xpath("//*[contains(@class,'oxd-table-body')]/div[13]"));
+
 		List<WebElement> coloum = driver.findElements(By.xpath("//*[@class='oxd-table-header']/div/div[4]"));
 		int columcount = coloum.size();
+
 		for (int i = 0; i < columcount; i++) {
 			String str = coloum.get(i).getText();
 			if (str.equalsIgnoreCase("Number of days")) {
@@ -48,7 +50,7 @@ public class WebTables {
 		}
 		List<WebElement> row = driver.findElements(By.xpath("//*[@class='oxd-table-body']/div"));
 		int len = row.size();
-		for (int j =0; j < len; j++) {
+		for (int j = 0; j < len; j++) {
 			String str1 = row.get(j).getText();
 			if (str1.equalsIgnoreCase("Number of days")) {
 				System.out.println("data is found");
@@ -59,9 +61,7 @@ public class WebTables {
 
 		}
 
-		// colo ==//*[@class='oxd-table-header']/div/div[4]
-		// row=== //*[@class='oxd-table-body']/div
-
+		
 	}
 
 }
