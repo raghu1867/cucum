@@ -12,7 +12,7 @@ Scenario: Log-in with valid username and password
 	#Scenario Outline: Verify Leave approval
 	#Given I Login to OrangeHRM
 	#When I Click on Leave button
-	#And I enter fields employee name as "<empl>" and sub unit as "<subunit>"
+	//#And I enter fields employee name as "<empl>" and subunit as "<subunit>"
 	#And I click on search button
 	#And I click on checkbox at row "1" in Leave Table
 	#And I click "Approve"  button
@@ -27,17 +27,36 @@ Scenario: Log-in with valid username and password
 	#Scenario : Verify Leave approval
 	#Given I Login to OrangeHRM
 	#When I Click on Leave button
-	#And I enter fields <>
+	#And I enter fields
 	#And I click on search button
 	
 	
 	Scenario: verify Leave type
 	Given I Login to OrangeHRM
 	When I Click on Leave button
-	And I enter fields <from date> and <to date> 
+	And I enter fields <from date> and <to date> and <show >
 	|from date |to date|show with status|leave type|record found|
-	|2021-2-23|2021-4-26|taken|can vacation|
+	|2021-2-23 |2021-4-26|taken|can vacation|
 	And I Click on search button
+	
+	
+	
+	Scenario:Verify Leave EmployeeName
+	
+	Given I Login to OrangeHRM
+	When I Click on Leave button
+	Then I Enter employee details
+	Then I Enter subunit details
+	And I click on search button
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 
