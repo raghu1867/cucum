@@ -46,8 +46,7 @@ public class WebTables {
 			} else {
 				System.out.println("data is not found");
 			}
-
-		}
+			}
 		List<WebElement> row = driver.findElements(By.xpath("//*[@class='oxd-table-body']/div"));
 		int len = row.size();
 		for (int j = 0; j < len; j++) {
