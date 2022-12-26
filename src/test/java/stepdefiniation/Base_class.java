@@ -9,25 +9,24 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import jaya.com.util.Utils;
-import jaya.com.util.WebEventListener;
+import utilities.Utils123;
 
 public class Base_class {
 
 public	static WebDriver driver;
 public	static Properties prop;
-public  static EventFiringWebDriver e_driver;
-public static WebEventListener eventListener;
+
+
 
 	public Base_class() {
 
 		try {
 			prop = new Properties();
 			FileInputStream fs = new FileInputStream(
-					System.getProperty("user.dir") + "/src/main/java/jaya/com/configuration/config.properties");
+					System.getProperty("user.dir") + "/src/test/java/configuration/config.properties");
+			
 			prop.load(fs);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -54,8 +53,8 @@ public static WebEventListener eventListener;
 		 * new WebEventListener(); e_driver.register(eventListener); driver = e_driver;
 		 */
 		
-		driver.manage().timeouts().pageLoadTimeout(Utils.PAGE_LOAD_TIMEOUT,TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(Utils.IMPLICIT_WAIT,TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(Utils123.PAGE_LOAD_TIMEOUT,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Utils123.IMPLICIT_WAIT,TimeUnit.SECONDS);
 		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
 		}
